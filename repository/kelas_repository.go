@@ -8,5 +8,5 @@ import (
 )
 
 type KelasRepository interface {
-	Save(ctx context.Context, tx *sql.Tx, kelas domain.Kelas)
+	Create(ctx context.Context, tx *sql.Tx, kelas domain.Kelas) domain.Kelas
 }
