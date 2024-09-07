@@ -10,6 +10,10 @@ import (
 
 type KelasRepositoryImpl struct{}
 
+func NewKelasRepository() KelasRepository {
+	return &KelasRepositoryImpl{}
+}
+
 func (repository *KelasRepositoryImpl) Create(ctx context.Context, tx *sql.Tx, kelas domain.Kelas) domain.Kelas {
 	SQL := "insert into kelas(ruang) values(?)"
 	result, err := tx.ExecContext(ctx, SQL, kelas.Ruang) // insert ke database

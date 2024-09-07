@@ -1,5 +1,5 @@
 package web
 
 type KelasCreateRequest struct {
-	Ruang string `validate:"required" json:"name"`
+	Ruang string `validate:"required" json:"ruang"`
 }

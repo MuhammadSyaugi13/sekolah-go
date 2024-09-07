@@ -14,7 +14,15 @@ import (
 type KelasServiceImpl struct {
 	KelasRepository repository.KelasRepository
 	DB              *sql.DB
-	Validate        validator.Validate
+	Validate        *validator.Validate
+}
+
+func NewKelasService(kelasRepository repository.KelasRepository, db *sql.DB, validate *validator.Validate) KelasService {
+	return &KelasServiceImpl{
+		KelasRepository: kelasRepository,
+		DB:              db,
+		Validate:        validate,
+	}
 }
 
 func (service *KelasServiceImpl) Create(ctx context.Context, request web.KelasCreateRequest) web.KelasCreateResponse {

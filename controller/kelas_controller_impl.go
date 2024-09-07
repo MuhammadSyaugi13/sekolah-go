@@ -14,6 +14,12 @@ type KelasControllerImpl struct {
 	KelasService service.KelasService
 }
 
+func NewKelasController(kelasService service.KelasService) KelasController {
+	return &KelasControllerImpl{
+		KelasService: kelasService,
+	}
+}
+
 func (controller *KelasControllerImpl) Create(writer http.ResponseWriter, request *http.Request, params httprouter.Params) {
 
 	decoder := json.NewDecoder(request.Body)
